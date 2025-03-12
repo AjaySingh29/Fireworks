@@ -1,0 +1,50 @@
+        /* Define custom properties for particle colors */
+        :root {
+            --particle-color: gold;
+            --particle-shadow-color: goldenrod;
+        }
+
+        /* Reset default margin, padding, and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style the body to fill the screen and prevent scrolling */
+        body {
+            background-color: #582040; /* Dark background for contrast */
+            overflow: hidden;
+            max-height: 100vh;
+            max-width: 100vw;
+            position: relative;
+        }
+
+        /* Define the appearance of particles */
+        .particle {
+            width: 4px;
+            height: 4px;
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--particle-color);
+            box-shadow: 0 0 5px var(--particle-color), 
+                        0 0 10px var(--particle-shadow-color), 
+                        0 0 15px var(--particle-shadow-color);
+            animation: moveParticles 1.5s ease-out forwards;
+            pointer-events: none; /* Prevent interaction */
+        }
+
+        /* Define the animation for particles */
+        @keyframes moveParticles {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            30% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--moveX), var(--moveY)) scale(2);
+            }
+        }
